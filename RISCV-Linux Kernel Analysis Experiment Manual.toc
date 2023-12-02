@@ -1,0 +1,50 @@
+\contentsline {chapter}{\numberline {1}实验一：反汇编一个简单的 C 程序}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}反汇编一个简单的 C 程序}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}将OS烧录到Micro-SD卡上}{1}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}ssh连接visionfive 2}{1}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}反编译c语言代码}{2}{section.1.2}%
+\contentsline {chapter}{\numberline {2}实验二：完成一个简单的时间片轮转多道程序内核代码}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}串口连接开发板}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}mincom串口工具下载与设置}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}CH340系列串口驱动占用}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.4}为编译Linux内核做准备}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.5}RISC-V架构MyKernel内核的构建}{8}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}实验目的和实验内容}{8}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}了解riscv}{8}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}制作我们的简易调度器}{10}{subsection.2.5.3}%
+\contentsline {section}{\numberline {2.6}编译RISC-V架构MyKernel内核}{22}{section.2.6}%
+\contentsline {section}{\numberline {2.7}MyKernel内核移植VisionFive2开发板}{23}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Ubuntu安装和配置TFTP服务器}{23}{subsection.2.7.1}%
+\contentsline {section}{\numberline {2.8}Uboot 加载 MyKernel 内核和根文件系统}{23}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}配置TFTP服务}{23}{subsection.2.8.1}%
+\contentsline {chapter}{\numberline {3}实验三：跟踪分析 Linux 内核的启动过程}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}下载RISC-V工具链}{25}{section.3.1}%
+\contentsline {section}{\numberline {3.2}安装QEMU}{26}{section.3.2}%
+\contentsline {section}{\numberline {3.3}编译OpenSBI}{26}{section.3.3}%
+\contentsline {section}{\numberline {3.4}编译Linux Kernel}{27}{section.3.4}%
+\contentsline {section}{\numberline {3.5}制作根文件系统}{28}{section.3.5}%
+\contentsline {section}{\numberline {3.6}运行简易Linux内核}{29}{section.3.6}%
+\contentsline {chapter}{\numberline {4}实验四：使用库函数API和C代码中嵌入汇编代码两种方式使用同一个系统调用}{36}{chapter.4}%
+\contentsline {section}{\numberline {4.1}使用SSH连接starfive visionfive 2}{36}{section.4.1}%
+\contentsline {section}{\numberline {4.2}使用man查看write函数}{36}{section.4.2}%
+\contentsline {section}{\numberline {4.3}C语言调用write函数}{37}{section.4.3}%
+\contentsline {section}{\numberline {4.4}RISC-V内联汇编调用write函数}{37}{section.4.4}%
+\contentsline {section}{\numberline {4.5}内联汇编解释}{38}{section.4.5}%
+\contentsline {chapter}{\numberline {5}实验五：分析 system call 中断处理过程}{40}{chapter.5}%
+\contentsline {section}{\numberline {5.1}MenuOS迁移到RISC-V架构}{40}{section.5.1}%
+\contentsline {section}{\numberline {5.2}CWrite和的编写}{41}{section.5.2}%
+\contentsline {section}{\numberline {5.3}GDB调试sys\_write函数}{43}{section.5.3}%
+\contentsline {chapter}{\numberline {6}实验六：分析 Linux 内核创建一个新进程的过程}{48}{chapter.6}%
+\contentsline {section}{\numberline {6.1}阅读理解 task\_struct 数据结构}{48}{section.6.1}%
+\contentsline {section}{\numberline {6.2}分析 fork 函数对应的内核处理过程 sys\_clone}{48}{section.6.2}%
+\contentsline {section}{\numberline {6.3}GDB 跟踪分析sys\_clone}{53}{section.6.3}%
+\contentsline {chapter}{\numberline {7}实验七：Linux 内核如何装载和启动一个可执行程}{58}{chapter.7}%
+\contentsline {section}{\numberline {7.1}程序的编译过程}{58}{section.7.1}%
+\contentsline {section}{\numberline {7.2}动态链接}{62}{section.7.2}%
+\contentsline {section}{\numberline {7.3}gdb 跟踪分析一个 execve 系统调用}{64}{section.7.3}%
+\contentsline {chapter}{\numberline {8}实验八：理解进程调度时机跟踪分析进程调度与进程切换的过程}{69}{chapter.8}%
+\contentsline {section}{\numberline {8.1}理解 Linux 系统中进程调度的时机}{69}{section.8.1}%
+\contentsline {section}{\numberline {8.2}gdb 跟踪分析 schedule()函数}{69}{section.8.2}%
+\contentsline {section}{\numberline {8.3}分析 switch\_to 中的汇编代码}{73}{section.8.3}%
+\contentsline {section}{\numberline {8.4}分析汇编代码}{74}{section.8.4}%
+\contentsline {section}{\numberline {8.5}理解进程上下文的切换机制和中断上下文切换的关系}{77}{section.8.5}%
