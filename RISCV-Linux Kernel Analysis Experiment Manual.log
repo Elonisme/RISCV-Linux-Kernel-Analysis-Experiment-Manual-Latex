@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Arch Linux) (preloaded format=xelatex 2023.11.22)  2 DEC 2023 19:54
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Arch Linux) (preloaded format=xelatex 2023.11.22)  4 DEC 2023 21:36
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1509,6 +1509,9 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 (Font)              scaled to size 10.0pt on input line 1331.
 )
+(/usr/share/texmf-dist/tex/latex/fundus-calligra/calligra.sty
+Package: calligra 2012/04/10 v1.9 LaTeX package calligra
+)
 (/usr/share/texmf-dist/tex/latex/dirtytalk/dirtytalk.sty
 Package: dirtytalk 2010/11/21 A package making "quoting" easier
 \c@dirtytalk@qdepth=\count557
@@ -1519,27 +1522,27 @@ Package csquotes Info: ... none found.
 (./RISCV-Linux Kernel Analysis Experiment Manual.aux)
 \openout1 = `"RISCV-Linux Kernel Analysis Experiment Manual.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-Package hyperref Info: Link coloring ON on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+Package hyperref Info: Link coloring ON on input line 30.
 
 (./RISCV-Linux Kernel Analysis Experiment Manual.out)
 (./RISCV-Linux Kernel Analysis Experiment Manual.out)
@@ -1615,10 +1618,10 @@ Package biblatex Info: ... file '"RISCV-Linux Kernel Analysis Experiment Manual
 ".bbl' not found.
 
 No file "RISCV-Linux Kernel Analysis Experiment Manual".bbl.
-Package biblatex Info: Reference section=0 on input line 28.
-Package biblatex Info: Reference segment=0 on input line 28.
+Package biblatex Info: Reference section=0 on input line 30.
+Package biblatex Info: Reference segment=0 on input line 30.
 \c@lstlisting=\count558
-Package hyperref Info: Option `pageanchor' set `false' on input line 30.
+Package hyperref Info: Option `pageanchor' set `false' on input line 32.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: a4paper
@@ -1651,29 +1654,29 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 30.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-File: ./figure//cover.png Graphic file (type bmp)
-<./figure//cover.png>
+File: ./figure//rms-torvalds1.jpg Graphic file (type bmp)
+<./figure//rms-torvalds1.jpg>
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 24.88pt on input line 30.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 30
+(Font)              scaled to size 24.88pt on input line 32.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 32
 .
 (/usr/share/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 30.
+(Font)              scaled to size 14.4pt on input line 32.
 File: ./figure//Tux.png Graphic file (type bmp)
 <./figure//Tux.png>
  [1
@@ -1681,32 +1684,32 @@ File: ./figure//Tux.png Graphic file (type bmp)
 
 
 ]
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 37.
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
-(Font)              scaled to size 12.0pt on input line 37.
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 39.
+LaTeX Font Info:    Font shape `T1/calligra/m/n' will be
+(Font)              scaled to size 20.73602pt on input line 39.
  [1
 
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 43.
+(Font)              scaled to size 12.0pt on input line 46.
 File: image/linuxbook.jpg Graphic file (type bmp)
 <image/linuxbook.jpg>
 
 Missing character: There is no 昉 (U+6609) in font [FandolSong-Regular.otf]/OT:l
 anguage=dflt;!
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 61.
 [2]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 17.28pt on input line 61.
+(Font)              scaled to size 17.28pt on input line 68.
  (./RISCV-Linux Kernel Analysis Experiment Manual.toc [3
 
 ])
 \tf@toc=\write8
 \openout8 = `"RISCV-Linux Kernel Analysis Experiment Manual.toc"'.
 
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 70.
  [4]
 Chapter 1.
 File: image/image-20231015121217662.png Graphic file (type bmp)
@@ -1791,55 +1794,58 @@ File: image/image-20231029162404057.png Graphic file (type bmp)
  [23]
 File: image/mmexport1701419651344.png Graphic file (type bmp)
 <image/mmexport1701419651344.png>
- [24]
+ [24] [25] [26] [27]
+File: image/image_2023-12-04_20-44-52.png Graphic file (type bmp)
+<image/image_2023-12-04_20-44-52.png>
+ [28]
 Chapter 3.
 File: image/image-20231105091522260.png Graphic file (type bmp)
 <image/image-20231105091522260.png>
-[25
+[29
 
 ]
-Overfull \hbox (8.13647pt too wide) in paragraph at lines 1244--1245
+Overfull \hbox (8.13647pt too wide) in paragraph at lines 1419--1420
 []\TU/FandolSong-Regular(0)/m/n/10 需 要 注 意 的 是 [][][][][][][][][][] 需 要 更 换 为 自
  己 的 用 户 名，|  在[][][][][][][][][][][][][][][][][][][][][][][][][]
  []
 
 File: image/image-20231105093844708.png Graphic file (type bmp)
 <image/image-20231105093844708.png>
-[26]
+[30]
 File: image/uboot.png Graphic file (type bmp)
 <image/uboot.png>
 File: image/image-20231105100304040.png Graphic file (type bmp)
 <image/image-20231105100304040.png>
- [27]
+ [31]
 File: image/image-20231105100626287.png Graphic file (type bmp)
 <image/image-20231105100626287.png>
 File: image/image-20231105100648963.png Graphic file (type bmp)
 <image/image-20231105100648963.png>
 File: image/image-20231105101258501.png Graphic file (type bmp)
 <image/image-20231105101258501.png>
- [28]
+ [32]
 File: image/image-20231105101313146.png Graphic file (type bmp)
 <image/image-20231105101313146.png>
 File: image/image-20231105101339834.png Graphic file (type bmp)
 <image/image-20231105101339834.png>
 File: image/image-20231105101948270.png Graphic file (type bmp)
 <image/image-20231105101948270.png>
- [29]
+ [33]
 File: image/image-20231105102806931.png Graphic file (type bmp)
 <image/image-20231105102806931.png>
- [30]
+ [34]
 File: image/image-20231105103328525.png Graphic file (type bmp)
 <image/image-20231105103328525.png>
 File: image/image-20231105103401143.png Graphic file (type bmp)
 <image/image-20231105103401143.png>
 File: image/image-20231105103508731.png Graphic file (type bmp)
 <image/image-20231105103508731.png>
- [31]
+ [35]
 File: image/image-20231105111831194.png Graphic file (type bmp)
 <image/image-20231105111831194.png>
 File: image/image-20231105112104038.png Graphic file (type bmp)
 <image/image-20231105112104038.png>
- [32]
+ [36]
 File: image/image-20231105112248991.png Graphic file (type bmp)
 <image/image-20231105112248991.png>
 File: image/image-20231105112437905.png Graphic file (type bmp)
@@ -1848,97 +1854,97 @@ File: image/image-20231105112512318.png Graphic file (type bmp)
 <image/image-20231105112512318.png>
 File: image/jc.png Graphic file (type bmp)
 <image/jc.png>
- [33]
+ [37]
 File: image/image-20231105113449231.png Graphic file (type bmp)
 <image/image-20231105113449231.png>
- [34]
+ [38]
 File: image/image-20231111155131309.png Graphic file (type bmp)
 <image/image-20231111155131309.png>
 File: image/image-20231105113622844.png Graphic file (type bmp)
 <image/image-20231105113622844.png>
- [35]
+ [39]
 Chapter 4.
 File: image/image-20231105133005556.png Graphic file (type bmp)
 <image/image-20231105133005556.png>
 File: image/image-20231105133327813.png Graphic file (type bmp)
 <image/image-20231105133327813.png>
-[36
+[40
 
 ]
 File: image/image-20231105134051213.png Graphic file (type bmp)
 <image/image-20231105134051213.png>
- [37]
+ [41]
 File: image/image-20231105134323745.png Graphic file (type bmp)
 <image/image-20231105134323745.png>
- [38] [39]
+ [42] [43]
 Chapter 5.
-[40
+[44
 
 ]
 File: image/image-20231105212015685.png Graphic file (type bmp)
 <image/image-20231105212015685.png>
- [41]
+ [45]
 File: image/image-20231105212850985.png Graphic file (type bmp)
 <image/image-20231105212850985.png>
 File: image/image-20231105212959159.png Graphic file (type bmp)
 <image/image-20231105212959159.png>
 File: image/image-20231105213246034.png Graphic file (type bmp)
 <image/image-20231105213246034.png>
- [42]
+ [46]
 File: image/image-20231105221503598.png Graphic file (type bmp)
 <image/image-20231105221503598.png>
 File: image/image-20231105221724247.png Graphic file (type bmp)
 <image/image-20231105221724247.png>
- [43]
+ [47]
 File: image/image-20231105221933745.png Graphic file (type bmp)
 <image/image-20231105221933745.png>
 File: image/image-20231106161606896.png Graphic file (type bmp)
 <image/image-20231106161606896.png>
- [44]
+ [48]
 File: image/image-20231106162535743.png Graphic file (type bmp)
 <image/image-20231106162535743.png>
 File: image/image-20231106162854338.png Graphic file (type bmp)
 <image/image-20231106162854338.png>
 File: image/image-20231111184909752.png Graphic file (type bmp)
 <image/image-20231111184909752.png>
- [45]
+ [49]
 File: image/image-20231106162942747.png Graphic file (type bmp)
 <image/image-20231106162942747.png>
 File: image/image-20231106163210213.png Graphic file (type bmp)
 <image/image-20231106163210213.png>
 File: image/system_call.png Graphic file (type bmp)
 <image/system_call.png>
- [46] [47]
+ [50] [51]
 Chapter 6.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 2099.
-LaTeX Font Info:    Trying to load font information for U+ding on input line 20
-99.
+(Font)              scaled to size 7.0pt on input line 2274.
+LaTeX Font Info:    Trying to load font information for U+ding on input line 22
+74.
 (/usr/share/texmf-dist/tex/latex/bbding/Uding.fd
 File: Uding.fd 1996/02/01 v1.0 BBding font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 2100--2101
+Underfull \hbox (badness 10000) in paragraph at lines 2275--2276
 \TU/FandolKai-Regular(0)/m/n/10 理 解 创 建 一 个 新 进 程 如 何 创 建 和 修 改
  []
 
 File: image/image-20231107202345288.png Graphic file (type bmp)
 <image/image-20231107202345288.png>
-[48
+[52
 
-] [49] [50] [51]
+] [53] [54] [55]
 File: image/fork.png Graphic file (type bmp)
 <image/fork.png>
- [52] [53]
+ [56] [57]
 File: image/image-20231107213842226.png Graphic file (type bmp)
 <image/image-20231107213842226.png>
- [54]
+ [58]
 File: image/image-20231107214310340.png Graphic file (type bmp)
 <image/image-20231107214310340.png>
 File: image/image-20231107215732335.png Graphic file (type bmp)
 <image/image-20231107215732335.png>
 File: image/image-20231107215834035.png Graphic file (type bmp)
 <image/image-20231107215834035.png>
- [55]
+ [59]
 File: image/image-20231107215857474.png Graphic file (type bmp)
 <image/image-20231107215857474.png>
 File: image/image-20231107214335881.png Graphic file (type bmp)
@@ -1947,10 +1953,10 @@ File: image/image-20231107214346193.png Graphic file (type bmp)
 <image/image-20231107214346193.png>
 File: image/image-20231107214357751.png Graphic file (type bmp)
 <image/image-20231107214357751.png>
- [56]
+ [60]
 File: image/image-20231107214407872.png Graphic file (type bmp)
 <image/image-20231107214407872.png>
- [57]
+ [61]
 Chapter 7.
 File: image/execve.png Graphic file (type bmp)
 <image/execve.png>
@@ -1958,63 +1964,63 @@ File: image/image-20231108152215370.png Graphic file (type bmp)
 <image/image-20231108152215370.png>
 File: image/image-20231108152332267.png Graphic file (type bmp)
 <image/image-20231108152332267.png>
-[58
+[62
 
-] [59]
+] [63]
 File: image/image-20231108204744069.png Graphic file (type bmp)
 <image/image-20231108204744069.png>
- [60]
+ [64]
 File: image/image-20231109161948754.png Graphic file (type bmp)
 <image/image-20231109161948754.png>
- [61]
+ [65]
 File: image/image-20231108210901120.png Graphic file (type bmp)
 <image/image-20231108210901120.png>
- [62] [63]
+ [66] [67]
 File: image/image-20231108220153906.png Graphic file (type bmp)
 <image/image-20231108220153906.png>
- [64] [65]
+ [68] [69]
 File: image/image-20231109163507762.png Graphic file (type bmp)
 <image/image-20231109163507762.png>
 File: image/image-20231109164518819.png Graphic file (type bmp)
 <image/image-20231109164518819.png>
 File: image/image-20231109165602046.png Graphic file (type bmp)
 <image/image-20231109165602046.png>
- [66]
+ [70]
 File: image/image-20231109165917824.png Graphic file (type bmp)
 <image/image-20231109165917824.png>
 File: image/image-20231109165138037.png Graphic file (type bmp)
 <image/image-20231109165138037.png>
 File: image/image-20231109164729388.png Graphic file (type bmp)
 <image/image-20231109164729388.png>
- [67]
+ [71]
 File: image/image-20231109170505625.png Graphic file (type bmp)
 <image/image-20231109170505625.png>
- [68]
+ [72]
 Chapter 8.
 File: image/image-20231109201036323.png Graphic file (type bmp)
 <image/image-20231109201036323.png>
 File: image/image-20231109201842239.png Graphic file (type bmp)
 <image/image-20231109201842239.png>
-[69
+[73
 
 ]
 File: image/image-20231109202045031.png Graphic file (type bmp)
 <image/image-20231109202045031.png>
- [70]
+ [74]
 File: image/image-20231109202345331.png Graphic file (type bmp)
 <image/image-20231109202345331.png>
 File: image/image-20231109202607880.png Graphic file (type bmp)
 <image/image-20231109202607880.png>
- [71]
+ [75]
 File: image/image-20231109202816225.png Graphic file (type bmp)
 <image/image-20231109202816225.png>
- [72]
+ [76]
 File: image/image-20231109203216397.png Graphic file (type bmp)
 <image/image-20231109203216397.png>
 File: image/image-20231109204506752.png Graphic file (type bmp)
 <image/image-20231109204506752.png>
- [73] [74]
-Overfull \hbox (8.6965pt too wide) in paragraph at lines 3104--3106
+ [77] [78]
+Overfull \hbox (8.6965pt too wide) in paragraph at lines 3279--3281
 \TU/FandolSong-Regular(0)/m/n/10 我 们 再 来 看 看 调 用 \TU/texgyretermes(0)/m/n/10 sw
 itch_to \TU/FandolSong-Regular(0)/m/n/10 的 代 码，|  发 现 第 一 个 参 数 是 需 要 保 存 的 \TU
 /texgyretermes(0)/m/n/10 tash_struct \TU/FandolSong-Regular(0)/m/n/10 第 二 个 参 数
@@ -2022,7 +2028,7 @@ itch_to \TU/FandolSong-Regular(0)/m/n/10 的 代 码，|  发 现 第 一 个 �
 /n/10 。|
  []
 
-[75] [76] [77] [78] (./RISCV-Linux Kernel Analysis Experiment Manual.aux)
+[79] [80] [81] [82] (./RISCV-Linux Kernel Analysis Experiment Manual.aux)
 Package rerunfilecheck Info: File `"RISCV-Linux Kernel Analysis Experiment Manu
 al".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
@@ -2032,13 +2038,13 @@ nt Manual".run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50304 strings out of 478682
- 1060215 string characters out of 5849664
- 2262291 words of memory out of 5000000
- 69536 multiletter control sequences out of 15000+600000
- 517312 words of font info for 94 fonts, out of 8000000 for 9000
+ 50364 strings out of 478682
+ 1062872 string characters out of 5849664
+ 2277613 words of memory out of 5000000
+ 69590 multiletter control sequences out of 15000+600000
+ 517738 words of font info for 94 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  103i,12n,107p,720b,2252s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on RISCV-Linux Kernel Analysis Experiment Manual.pdf (83 pages).
+Output written on RISCV-Linux Kernel Analysis Experiment Manual.pdf (87 pages).
 

@@ -1,5 +1,7 @@
 \documentclass[lang=cn,10pt]{elegantbook}
+\usepackage{xeCJK}
 \usepackage{fontspec}
+\usepackage{calligra} 
 \usepackage{dirtytalk}
 
 \title{RISCV-Linux 内核分析实验手册}
@@ -10,12 +12,12 @@
 \date{\today}
 \version{1.0}
 
-\extrainfo{我们的征途是星辰大海 —— 田中芳樹}
+\extrainfo{向计算机的先贤致敬 —— Elon Li}
 
 \setcounter{tocdepth}{3}
 
 \logo{Tux.png}
-\cover{cover.png}
+\cover{rms-torvalds1.jpg}
 
 % 本文档命令
 \usepackage{array}
@@ -34,11 +36,12 @@
 
 \vspace*{\fill}
 \begin{center}
-\textit{\large This manual is dedicated to Prof. Lou, \\who has been tirelessly devoted to the field.}
+{\Large\calligra This manual is dedicated to Prof. Lou, \\who has been tirelessly devoted to the field.}
 \end{center}
 \vspace*{\fill}
 
 \newpage
+\thispagestyle{empty} 
 \begin{center}
   \textbf{\large 前言}
 \end{center}
@@ -51,12 +54,16 @@ Linux内核是一个开源、免费的操作系统内核，它是整个Linux操�
   \caption{《庖丁解牛Linux操作系统分析》}
 \end{figure}
 
-
 本手册记录了该书中的八个实验，但与教材不同的是，本手册记录的八个实验均是在RISC-V架构上的机器上实现的。RISC-V（发音为"risk-five"）是一种基于精简指令集计算机（RISC）原则的开放架构，被视为将来最有潜力与X86架构和Arm架构相竞争的新指令集架构。在本手册中所记录的实验中，除了需要使用GDB调试的部分使用了qemu进行模拟RISC-V架构的裸机之外，均使用了来自赛昉科技研发的全球首发的新一代RISC-V架构的开发板——Visionfive 2 实现的。
 
 本手册从内容上来说，记录了比较详细的过程，使得读者能够尽可能容易的复现出所有实验。通过阅读和复现本手册的各个实验，你除了将学习到《庖丁解牛Linux操作系统分析》中记录的关于Linux 内核的知识点，还能学习到如何给RISC-V架构的开发板烧录GNU/LInux操作系统的发行版Debain操作系统；如何使用ssh和串口通讯连接RISC-V架构的开发板；OpenSBI和Uboot是何物; 一个简易的Linux操作系统将如何制作；如何使用TFTP协议给只带有Uboot的开发板传输文件；如何在Uboot上引导Linux内核和根文件系统；如何在X86平台上交叉编译RISC-V Linux内核；如何制作根文件系统；MenuOS如何在RISC-V架构上实现；RISC Linux内核是如何运行的等等。
 
-本手册由我和ZyLqb共同完成，由于我们两个现在还都是学生，因此本手册中难免会出现各种错误，请各位读者批评指正。
+本手册由\href{https://github.com/Elonisme}{我}和\href{https://github.com/ZyLqb}{ZyLqb}共同完成，由于我们两个现在还都是学生，因此本手册中难免会出现各种错误，请各位读者批评指正。
+
+\hfill Elon Li
+
+\hfill \hspace{2em} 2023年12月4日
+
 
 \tableofcontents
 
@@ -1187,15 +1194,183 @@ MyKernel内核加载后将在开发板上实现一个简单的时间片轮转多
   \caption{一个简单的时间片轮转多道程序}
 \end{figure}
 
+\section{用协程完成实验}
+注意根据内核版本不同，我们的程序存在无法正确运行的可能，由于并未完全阅读过linux内核代码，这里可能存在一些我们所不知道的检查。所以在我们使用自己的栈的时候，可能会出现栈溢出的情况。所以我们这里提供另一种实验方法--协程。
+协程。协程又被叫做轻量级线程，它与线程很像，协程的切换的方式是和线程切换一模一样的，只不过协程的切换是在用户态下面进行的，并不是内核态。而协程的切换也不会导致内核线程的切换。协程可以为程序带来巨大的性能提升，而且它切换的资源非常少
+讲回我们自己的程序，我们会发现，其实我们自己在内核态写的多道程序轮转调用实际上完全可以放在用户态用协程来运行，甚至不需要修改代码。只需要组合起来，然后写个main函数，然后编译运行就行了。
+
+main.c程序如下：
+\begin{lstlisting}
+  #include <stdio.h>
+  #include <string.h>
+  #define MAX_TASK_NUM 4
+  #define KERNEL_STACK_SIZE 256
+  /* CPU-specific state of this task */
+  typedef struct Thread {
+    unsigned long s0;
+    unsigned long ip;
+    unsigned long sp;
+  } tThread;
+
+  typedef struct AThread {
+    // unsigned long       s0;
+    unsigned long ra;
+    unsigned long sp;
+    unsigned long s0;
+    unsigned long s1;
+    unsigned long s2;
+    unsigned long s3;
+    unsigned long s4;
+    unsigned long s5;
+    unsigned long s6;
+    unsigned long s7;
+    unsigned long s8;
+    unsigned long s9;
+    unsigned long s10;
+    unsigned long s11;
+  } aThread;
+
+  typedef struct PCB {
+    int pid;
+    volatile long state; /* -1 unrunnable, 0 runnable, >0 stopped */
+    unsigned long stack[KERNEL_STACK_SIZE];
+    /* CPU-specific state of this task */
+    struct Thread thread;
+    struct AThread context;
+    unsigned long task_entry;
+    struct PCB *next;
+  } tPCB;
+
+  tPCB task[MAX_TASK_NUM];
+  tPCB *my_current_task = 0;
+  volatile int my_need_sched = 0;
+
+  void my_process(void);
+  void my_schedule(void);
+
+  extern void __switch(aThread *old, aThread *new);
+
+  void __init_my_start_kernel(void) {
+
+    printf("run init my start kernel");
+    int pid = 0;
+    int i;
+    /* Initialize process 0*/
+    // unsigned long stacks = 0xffffffff81601000;
+
+    task[pid].pid = pid;
+    task[pid].state = 0; /* -1 unrunnable, 0 runnable, >0 stopped */
+    task[pid].task_entry = task[pid].thread.ip = (unsigned long)my_process;
+    task[pid].thread.sp = (unsigned long)&task[pid].stack[KERNEL_STACK_SIZE - 1];
+    task[pid].thread.s0 = (unsigned long)&task[pid].stack[KERNEL_STACK_SIZE - 1];
+    task[pid].next = &task[pid];
+
+    task[pid].context.ra = (unsigned long)my_process;
+    task[pid].context.s0 = (unsigned long)&task[pid].stack[KERNEL_STACK_SIZE - 1];
+    task[pid].context.sp = (unsigned long)&task[pid].stack[KERNEL_STACK_SIZE - 1];
+
+    /*fork more process */
+    for (i = 1; i < MAX_TASK_NUM; i++) {
+      memcpy(&task[i], &task[0], sizeof(tPCB));
+      task[i].pid = i;
+      task[i].thread.sp = (unsigned long)(&task[i].stack[KERNEL_STACK_SIZE - 1]);
+
+      task[i].context.s0 = (unsigned long)&task[i].stack[KERNEL_STACK_SIZE - 1];
+      task[i].context.sp = (unsigned long)&task[i].stack[KERNEL_STACK_SIZE - 1];
+
+      task[i].next = task[i - 1].next;
+      task[i - 1].next = &task[i];
+    }
+    printf("stacks : %p\n", task[0].thread.sp);
+    /* start process 0 by task[0] */
+    pid = 0;
+    my_current_task = &task[pid];
+    __asm__ volatile(
+    "mv sp,%[msp]\n"
+    "mv ra,%[mip]\n"
+    "mv s0,%[ms0]\n"
+    "ret\n\t" /* pop task[pid].thread.ip to rip */
+    :
+    : [mip] "r"(task[pid].thread.ip), [msp] "r"(task[pid].thread.sp),
+    [ms0] "r"(task[pid].thread.s0) /* input c or d mean %ecx/%edx*/
+    );
+  }
+
+  static int i = 0;
+
+  void my_process(void) {
+
+    while (1) {
+      i++;
+      if (i % 10000000 == 0) {
+      printf("this is process %d -\n", my_current_task->pid);
+      if (my_need_sched == 0) {
+
+        my_need_sched = 0;
+        my_schedule();
+      }
+      printf("this is process %d +\n", my_current_task->pid);
+    }
+  }
+}
+
+void my_schedule(void) {
+  tPCB *next;
+  tPCB *prev;
+
+  if (my_current_task == 0 || my_current_task->next == 0) {
+    return;
+  }
+  printf(">>>my_schedule<<<\n");
+  /* schedule */
+  next = my_current_task->next;
+  prev = my_current_task;
+  if (next->state == 0) /* -1 unrunnable, 0 runnable, >0 stopped */
+  {
+    my_current_task = next;
+    printf(">>>switch %d to %d<<<\n", prev->pid, next->pid);
+    __switch(&prev->context, &next->context);
+    printf("after scheduler\n");
+  }
+  return;
+}
+int main() {
+  printf("hello world\n");
+  __init_my_start_kernel();
+}
+\end{lstlisting}
+
+Makefile文件如下：
+\begin{lstlisting}
+  mymain:mymain.c
+  gcc -c ./mymain.c -o mymain.o
+  switch:switch.s
+  gcc -c ./switch.s -o switch.o
+  all: mymain switch
+  gcc ./mymain.o ./switch.o -o ./main
+\end{lstlisting}
+
+使用 ssh 连接好 visionFive2 好后，使用 scp 命令将 main.c 和 Makefile 上传到开发板上后，使用以下的命令进行编译将会本目录下生成一个名为 main 
+的二进制文件，让我们来运行它，发现和我们想得一模一样。非常好！现在我们已经能理解线程是怎么切换的了。：
+\begin{lstlisting}
+  make all && ./main
+\end{lstlisting}
+
+运行截图
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\textwidth]{image/image_2023-12-04_20-44-52.png}
+  \caption{使用协程实现时间片轮转多道程序}
+\end{figure}
 
 \chapter{实验三：跟踪分析 Linux 内核的启动过程}
 \section{下载RISC-V工具链}
 对于新手而言，自己克隆RISC-V的仓库进行编译有三大不方便之处：
 
 \begin{enumerate}
-  \item RISC-V工具链仓库巨大，对于国内用户下载不方便
-  \item RISC-V工具链的依赖包和配置，新手不一定能解决
-  \item RISC-V工具链编译时间长
+\item RISC-V工具链仓库巨大，对于国内用户下载不方便
+\item RISC-V工具链的依赖包和配置，新手不一定能解决
+\item RISC-V工具链编译时间长
 \end{enumerate}
 
 故此，使用他人编译好的工具链，是一种有效的方式。网站 toolchains.bootlin.com 提供了已经编译好的RISC-V工具链，如下图所示：
@@ -3211,9 +3386,11 @@ RISC-V的异常处理机制包括三种类型的异常：
 再次恭喜你完成这八次实验，希望你的科研之路越来越宽广，未来的实验取得更加令人瞩目的成果。期待在共同的科研征途中，我们能够一同奋斗，创造更多的科学奇迹。
 
 本手册使用 \LaTeX 进行编写，主题使用了\href{https://www.overleaf.com/latex/templates/elegantbook-template/zpsrbmdsxrgy}{ElegantBook Template}。感谢 \LaTeX 社区和 ElegantBook 的作者们。
-本手册能够完成，是因为有我的合伙人ZyLqb的共同努力，有605的师兄师弟们的热心帮助，有我的导师张健毅教授的支持，有帮我们办材料和募集资金的同学的积极帮助，更是因为娄嘉鹏老师在设备和资金上的大力支持。
-在整个过程中，ZyLqb作为我的合伙人，我们携手合作，共同克服了种种困难，让这个手册得以顺利完成。再次感谢娄嘉鹏老师，在设备和资金方面的慷慨支持让我们能够顺利进行实验和研究，为手册提供了坚实的资金和设置基础。在科研道路上，有了这样的支持和帮助，我们更加有信心和动力前行。
+本手册能够完成，是因为有我的合伙人\href{https://github.com/ZyLqb}{ZyLqb}的共同努力,更是因为娄嘉鹏老师在设备和资金上的大力支持。在这里，感谢本手册在撰写过程中提供过帮助的人，感谢父母的支持，感谢我女朋友\href{https://github.com/AsuanC}{Msuan Dan}的鼓励，感谢我的导师Prof.Nese Zhang的支持和理解，感谢每一个帮助我们筹集资金的同学。在整个过程中，ZyLqb作为我的合伙人，我们携手合作，共同克服了种种困难，让这个手册得以顺利完成。再次感谢娄嘉鹏老师，在设备和资金方面的慷慨支持让我们能够顺利进行实验和研究，为手册提供了坚实的资金和设置基础。在科研道路上，有了这样的支持和帮助，我们更加有信心和动力前行。
 
-感谢合作伙伴的支持，也感谢娄家鹏老师的大力资助。在未来的研究和工作中，我们将一如既往地努力拼搏，为科学事业贡献我们的力量。
+最后再次感谢关心本项目进程的人们。在未来的研究和工作中，我和ZyLqb将一如既往地努力拼搏，为计算机科学事业贡献我们的力量。
 
+\hfill Elon Li
+
+\hfill \hspace{2em} 2023年12月4日
 \end{document}
