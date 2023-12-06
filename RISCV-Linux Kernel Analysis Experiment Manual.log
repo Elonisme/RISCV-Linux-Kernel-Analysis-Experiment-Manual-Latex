@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Arch Linux) (preloaded format=xelatex 2023.11.22)  4 DEC 2023 21:36
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Arch Linux) (preloaded format=xelatex 2023.11.22)  6 DEC 2023 12:49
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1696,13 +1696,11 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 (Font)              scaled to size 12.0pt on input line 46.
 File: image/linuxbook.jpg Graphic file (type bmp)
 <image/linuxbook.jpg>
-
-Missing character: There is no 昉 (U+6609) in font [FandolSong-Regular.otf]/OT:l
-anguage=dflt;!
-[2]
+ [2]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 (Font)              scaled to size 17.28pt on input line 68.
- (./RISCV-Linux Kernel Analysis Experiment Manual.toc [3
+
+(./RISCV-Linux Kernel Analysis Experiment Manual.toc [3
 
 ])
 \tf@toc=\write8
@@ -2040,7 +2038,7 @@ nt Manual".run.xml'.
 Here is how much of TeX's memory you used:
  50364 strings out of 478682
  1062872 string characters out of 5849664
- 2277613 words of memory out of 5000000
+ 2277614 words of memory out of 5000000
  69590 multiletter control sequences out of 15000+600000
  517738 words of font info for 94 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
